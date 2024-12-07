@@ -21,11 +21,11 @@ public class MappingClassController {
         return "find User= " + userId;
     }
 
-
     @PatchMapping("/{userId}")
     public String updateUser(@PathVariable String userId){
         return "update user= " + userId;
     }
+
     @DeleteMapping("/{userId}")
     public String deleteUser(@PathVariable String userId) {
         return "delete userId= " + userId;
