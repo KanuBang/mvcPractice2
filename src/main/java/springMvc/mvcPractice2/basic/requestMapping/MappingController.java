@@ -39,4 +39,29 @@ public class MappingController {
         log.info("mappingPath userId={}, orderId={}", userId, orderId);
         return "multi path variable";
     }
+    // 특정 파라미터 조건 매핑
+    @GetMapping(value = "/mapping-param", params = "mode=debug")
+    public String mappingParam() {
+        log.info("mappingParam");
+        return "ok";
+    }
+    // 특정 헤더 조건 매핑
+    @GetMapping(value = "/mapping-header", headers = "mode=debug")
+    public String mappingHeader() {
+        log.info("mappingHeader");
+        return "ok";
+    }
+    // 미디어 타입 조건 매핑 - HTTP 요청 content-type, consume
+    @PostMapping(value = "/mapping-consume", consumes = "application/json")
+    public String mappingConsumes() {
+        log.info("mappingConsumes");
+        return "ok";
+    }
+
+    // 미디어 타입 조건 매핑 - HTTP 요청 accept, produce
+    @PostMapping(value = "/mapping-produce", produces = "text/html")
+    public String mappingProduces() {
+        log.info("mappingProduces");
+        return "ok";
+    }
 }
